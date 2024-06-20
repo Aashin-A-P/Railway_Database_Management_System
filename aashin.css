@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.ticket-container {
+    margin-left: 10%;
+    margin-right:10%;
+    margin-top:20px; /* Adjust this value for a thinner margin */
+    border: 3px solid black; /* Adjust this value for a thinner border */
+    padding-top: 0px;
+    margin-bottom:20px;
+     /* Adjust this value as needed for your ticket content */
+}
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Adjust as needed for spacing */
+    padding-left: 20px;
+}
+
+.left-images,
+.right-images {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-images img,
+.right-images img {
+    width: 125px; /* Adjust the width of the images as needed */
+    margin-right: 20px; 
+    height:125px;/* Adjust as needed for spacing between images */
+}
+.booking-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+.left, .right {
+    /* Adjust the width as needed */
+    text-align: left;
+}
+.left{
+    padding-left: 15%;
+}
+.right{
+    padding-right: 15%;
+}
+
+.center {
+    flex-grow: 1;
+    text-align: center;
+}
+hr{
+    height: 10px;
+    color:black;
+}
+button {
+    padding: 10px 20px;
+    background-color: #ffcccc; /* Pale red color */
+    border: none;
+    color: #333; /* Text color */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px; /* Adjust the border-radius to create a round rectangular shape */
+}
+
+button:hover {
+    background-color: #990000; /* Dark red color on hover */
+    color: #fff; /* Text color on hover */
+}
