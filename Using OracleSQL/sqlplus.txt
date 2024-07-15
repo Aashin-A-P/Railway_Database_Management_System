@@ -1,0 +1,1271 @@
+INSERT INTO tickets VALUES('535-1526738','65','reserved','lower',2,7,2,3,6);
+INSERT INTO tickets VALUES('963-1829374','12','reserved','middle',8,3,8,4,3);
+INSERT INTO tickets VALUES('264-9853426','101','reserved','lower',1,2,3,5,9);
+INSERT INTO tickets VALUES('172-8192637','0','waiting_list','not_available',3,6,7,6,1);
+INSERT INTO tickets VALUES('721-9172835','44','reserved','middle',4,4,6,1,7);
+
+ create table tickets(
+    PNR_no varchar(15),
+    seat_no integer,
+    ticket_status varchar(15),
+    berth varchar(15),
+    trans_id integer,
+    p_id integer,
+    class_id integer,
+    t_id integer,
+    user_id integer
+   );
+
+DESC tickets;
+
+UPDATE  tickets SET PNR_no='721-9172835' WHERE seat_no=44;
+
+SELECT PNR_no FROM tickets ORDER by user_id;
+
+ALTER TABLE tickets ADD
+
+ALTER TABLE student add constraint idph unique(reg_no , ph_no);
+
+INSERT INTO student VALUES('&name',&reg_no,&ph_no);
+
+
+create table student(
+    name varchar(20),
+    reg_no integer,
+    ph_no integer
+    );
+
+ALTER TABLE student add foreign key(staff_id) REFERENCES staff_b2(stf_id);
+
+ INSERT INTO customers VALUES( 2 , 'geetha' , 18 , 'mumbai' , 9000);
+ INSERT INTO customers VALUES( 3 , 'radha' , 19 , 'bengaluru' , 25000);
+ INSERT INTO customers VALUES( 4 , 'loga priya' , 16 , 'madurai' , 50000);
+ INSERT INTO customers VALUES( 5 , 'swethika' , 22 , 'theni' , 100000);
+
+UPDATE orders WHERE oid=105 SET oname= 'geetha' ;
+UPDATE orders WHERE oid=104 SET oname= 'radha' ;
+UPDATE orders WHERE oid=106 SET oname= 'raji' ;
+UPDATE orders WHERE oid=107 SET oname= 'archana' ;
+INSERT INTO  orders VALUES( 106 , '16-FEB-2023' , 3 , 1000 , 'radha');
+INSERT INTO orders VALUES( 107 , '2-AUG-2023' , 2 , 6000 , 'raji');
+INSERT INTO orders VALUES( 105 , '5-NOV-2023' , 3 , 50000 , 'geetha');
+INSERT INTO orders VALUES( 107 , '6-JAN-2023' , 9 , 11000 , 'swathi');
+
+create table stud(
+ s_id int,
+ s_name varchar(20),
+ s_dept varchar(20),
+ s_address varchar(20)
+);
+
+INSERT INTO  stud VALUES( 1 , 'radha' , 'rpt' , 'chennai');
+INSERT INTO  stud VALUES( 2 , 'geetha' , 'it' , 'trichy');
+INSERT INTO  stud VALUES( 3 ,'radha' , 'pt' , 'mumbai' );
+
+create table stud1(
+ s_id int,
+ s_dept varchar(20),
+ s_address varchar(20)
+);
+
+INSERT INTO  stud1 VALUES( 1 , 'rpt' , 'chennai');
+INSERT INTO  stud1 VALUES( 2 , 'it' , 'trichy');
+INSERT INTO  stud1 VALUES( 3 , 'pt' , 'mumbai' );
+
+create table orders(
+ oid int,
+ odate DATE,
+ C_ID int,
+ amount int,
+ name varchar(20));
+
+create table stud2(
+ s_name varchar(20),
+ s_dept varchar(20),
+ s_address varchar(20)
+);
+
+INSERT INTO  stud2 VALUES( 'radha' , 'rpt' , 'chennai');
+INSERT INTO  stud2 VALUES( 'geetha' , 'it' , 'trichy');
+INSERT INTO  stud2 VALUES( 'radha' , 'pt' , 'mumbai' );
+
+SELECT id,name,amount,odate from customers inner join orders on customers.id=orders.c_id;
+
+SELECT id,name,amount,odate from customers right join orders on customers.id=orders.c_id;
+
+SELECT id,name,amount,odate from customers left join orders on customers.id=orders.c_id;
+
+SELECT id,name,amount,odate from customers full join orders on customers.id=orders.c_id;
+
+select name from customers union select name from orders;
+
+select name from customers union all select name from orders;
+
+select name from customers intersect select name from orders;
+
+select name from customers minus select name from orders;
+
+create table t1 as select pnr_no from tickets;
+
+Lossy and Lossless decomposition :
+The decompositions R1, R2, R2… Rn for a relation schema R are said to be Lossless if there natural join results the original relation R. The decompositions 
+R1, R2, R2… Rn for a relation schema R are said to be Lossy if there natural join results into addition of extraneous tuples with the original relation R.
+
+Railway Ticket Reservation System:
+
+User Table:
+
+CREATE TABLE login_user(
+user_id int NOT NULL,
+username varchar2(25) NOT NULL,
+password varchar2(15) NOT NULL,
+pref_lang varchar2(10),
+name varchar2(20) NOT NULL,
+DOB DATE,
+maritalstatus varchar2(10),
+sec_qn varchar2(50),
+sec_ans varchar2(50),
+address varchar2(100) NOT NULL,
+email varchar2(25),
+mob_no int NOT NULL,
+gender varchar2(10),
+occp_type varchar2(15),
+nationality varchar2(15),
+PRIMARY KEY(user_id));
+
+
+INSERT INTO login_user VALUES(100000,'apaashin','aashin123','English','Aashin A P','21-JAN-2005','Unmarried','Who is your favourite sportsperson?','MS Dhoni','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaashin@gmail.com',9489960744,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100001,'sasikumar','sasi321','English','Sasi Kumar R','27-OCT-2004','Unmarried','Who is your favourite actor?','Ajith','1234 Elm Street,Cityville, Stateville,ZIP Code:12345','sasikumar@gmail.com',9483466746,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100002,'antokumar','anto7677','English','R P Anto Kumar','07-JUN-1977','Married','Which institution are you working in?','SXCCE','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','anto_friends@yahoo.com',9443282263,'Male','Private','Indian');
+
+INSERT INTO login_user VALUES(100003,'apaarush','aarush2101','English','Aarush A P','20-JUN-2011','Unmarried','What is the name of your pet?','Tiger','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaarush2011@gmail.com',9488748746,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100004,'preetha','preetha0505','English','Preetha S','05-MAY-2005','Married','What is the name of your spouse?','R P Anto Kumar','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','preethaaashin@gmail.com',9487311744,'Female','Other','Indian');
+
+INSERT INTO login_user VALUES(100005,'naveen','naveen123','English','Naveen J','10-DEC-2004','Unmarried','Who is your favourite sportsperson?','Christiano Ronaldo','Dubai Cross Street,Dubai Main Road,Opp to Dubai Bus Stand,Chromepet.','naveen@gmail.com',9898959512,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100006,'aadharsh','aadharsh123','English','Aadharsh S','12-NOV-2004','Unmarried','Who is your college crush?','H R','NIT Trichy Quarters, NIT Trichy, Trichy','aadharsh@gmail.com',9476356458,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100007,'tamilselvan','tamil420','English','Tamilselvan V','23-JUN-2005','Unmarried','Who is your favourite sportsperson?','Virat Kohli','Gingee, Viluppuram','abimonshri@gmail.com',9487387437,'Male','Student','Indian');
+
+
+Journey Table:
+
+CREATE TABLE journey(
+j_id int,
+j_source varchar2(25),
+j_dest varchar2(25),
+j_date DATE,
+createdon DATE,
+j_status varchar2(25),
+login_id int,
+PRIMARY KEY(j_id),
+FOREIGN KEY(login_id) REFERENCES login_user(user_id)
+);
+
+INSERT INTO journey VALUES(001,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Pending','100001');
+
+INSERT INTO journey VALUES(002,'Chennai Egmore','Nagercoil Junction','02-OCT-2023','23-SEP-2023','Pending','100000');
+
+INSERT INTO journey VALUES(003,'Kanniyakumari Terminus','Agra Cantt','01-AUG-2023','23-JUL-2023','Completed','100002');
+
+INSERT INTO journey VALUES(004,'MGR Chennai Central','Bangalore Junction','24-NOV-2023','27-SEP-2023','Pending','100001');
+
+INSERT INTO journey VALUES(005,'Trivandrum Central','MGR Chennai Central','29-SEP-2023','23-SEP-2023','Pending','100004');
+
+INSERT INTO journey VALUES(006,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Cancelled','100003');
+
+
+Train Table:
+
+CREATE TABLE train(
+t_id int,
+t_name varchar2(50),
+t_type varchar2(25),
+dep_st varchar2(25),
+arr_st varchar2(25),
+dep_time TIMESTAMP,
+arr_time TIMESTAMP,
+halts int,
+pantry_status varchar2(10),
+us_id int,
+jo_id int,
+PRIMARY KEY(t_id),
+FOREIGN KEY(us_id) REFERENCES login_user(user_id),
+FOREIGN KEY(jo_id) REFERENCES journey(j_id));
+
+
+INSERT INTO train VALUES(12666,'Kanniyakumari - Howrah Superfast Express','SuperFast','Nagercoil Junction','Howrah Cantt','27-SEP-2023 12:00:00 AM','28-SEP-2023 04:00:00 PM',14,'Open',100000,002);
+
+INSERT INTO train VALUES(16128,'Guruvayur - Chennai Egmore Express','Express','Kochuveli Junction','Chennai Egmore','24-SEP-2023 06:00:00 AM','24-SEP-2023 08:00:00 PM',22,'Close',100004,001);
+
+INSERT INTO train VALUES(12688,'Tambaram - Nagercoil Junction Superfast Express','SuperFast','Tambaram','Nagercoil Junction','27-SEP-2023 06:00:00 PM','28-SEP-2023 05:00:00 AM',16,'Open',100002,004);
+
+INSERT INTO train VALUES(20692,'Nagercoil - Tambaram Antyodaya Express','Antyodaya','Nagercoil Junction','Tambaram','25-SEP-2023 06:45:00 PM','26-SEP-2023 05:00:00 AM',22,'Close',100002,003);
+
+INSERT INTO train VALUES(12633,'Chennai Egmore - Kanniyakumari Express','Express','Chennai Egmore','Kanniyakumari Terminus','25-SEP-2023 07:45:00 PM','26-SEP-2023 05:30:00 AM',14,'Open',100005,005);
+
+INSERT INTO train VALUES(12634,'Kanniyakumari - Chennai Egmore Express','Express','Kanniyakumari Terminus','Chennai Egmore','25-SEP-2023 07:45:00 PM','26-SEP-2023 05:30:00 AM',14,'Open',100004,006);
+
+Class Table:
+
+CREATE TABLE class(
+class_id int,
+class_name varchar2(25),
+no_of_compartments int,
+seat_per_compartment int,
+seat_availability varchar2(10),
+opt_for_upgrade varchar2(5),
+upgradation_status varchar2(15),
+coach_pref varchar2(15),
+jou_id int,
+l_user_id int,
+tr_id int,
+PRIMARY KEY(class_id),
+FOREIGN KEY(jou_id) REFERENCES journey(j_id),
+FOREIGN KEY(l_user_id) REFERENCES login_user(user_id),
+FOREIGN KEY(tr_id) REFERENCES train(t_id)
+);
+
+
+INSERT INTO class VALUES(001,'First Class AC',1,20,'WL1','No','Pending','Nil',001,100004,12688);
+
+INSERT INTO class VALUES(002,'First Class AC',1,20,'PWQL1','No','Pending','Nil',002,100002,12634);
+
+INSERT INTO class VALUES(003,'Sleeper',12,80,'WL129','Yes','Pending','Nil',001,100005,12633);
+
+INSERT INTO class VALUES(004,'First Class AC',1,20,'WL1','No','Pending','Nil',005,100001,12633);
+
+Passenger Table:
+
+CREATE TABLE passenger(
+p_id int,
+name varchar2(20),
+DOB DATE,
+email varchar2(50),
+p_type varchar2(25),
+mob_no int,
+opt_insur varchar2(5),
+user_id int,
+PRIMARY KEY(p_id),
+FOREIGN KEY(user_id) REFERENCES login_user(user_id));
+
+INSERT INTO passenger VALUES(001,'Aashin A P','21-JAN-2005','apaashin@gmail.com','Adult',9489960744,'Yes',100001);
+
+INSERT INTO passenger VALUES(002,'V Tamilselvan','23-JUN-2005','vtamil@gmail.com','Adult',9489960944,'Yes',100000);
+
+INSERT INTO passenger VALUES(003,'Alam','19-FEB-1955','alam7@gmail.com','Senior Citizen',9489935744,'No',100005);
+
+INSERT INTO passenger VALUES(004,'Ravi Shankar','21-Feb-2005','ravishankar@gmail.com','Adult',9489965674,'Yes',100006);
+
+
+Transaction Table:
+
+CREATE TABLE transaction(
+trans_id int,
+transamt NUMBER(10,2),
+pay_method varchar2(25),
+acc_no int,
+trans_datetime TIMESTAMP,
+trans_status varchar2(25),
+baseprice NUMBER(10,2),
+tax NUMBER(10,2),
+p_id int,
+class_id int,
+t_id int,
+j_id int,
+user_id int,
+PRIMARY KEY(trans_id),
+FOREIGN KEY(p_id) REFERENCES passenger(p_id),
+FOREIGN KEY(class_id) REFERENCES class(class_id),
+FOREIGN KEY(t_id) REFERENCES train(t_id),
+FOREIGN KEY(j_id) REFERENCES journey(j_id),
+FOREIGN KEY(user_id) REFERENCES login_user(user_id)
+);
+
+
+INSERT INTO transaction VALUES(001,1256.47,'UPI','7754354636','23-SEP-2023 08:20:00 PM','Success',1240.00,16.47,001,001,12633,001,100000);
+
+INSERT INTO transaction VALUES(002,1556.47,'Net Banking','775433754636','22-SEP-2023 08:20:00 AM','Success',1440.00,116.47,002,002,12634,002,100001);
+
+INSERT INTO transaction VALUES(003,756.47,'UPI','7756554636','23-SEP-2023 08:30:00 PM','Failure',750.00,6.47,003,003,12633,003,100003);
+
+INSERT INTO transaction VALUES(004,756.47,'UPI','7756554636','23-SEP-2023 08:30:00 PM','Success',750.00,6.47,003,003,12633,003,100003);
+
+Ticket Table:
+
+CREATE TABLE ticket(
+pnr_no int,
+seat int,
+gen_datetime TIMESTAMP,
+berth varchar2(25),
+status varchar2(25),
+trans_id int,
+p_id int,
+class_id int,
+t_id int,
+j_id int,
+user_id int,
+PRIMARY KEY(pnr_no),
+FOREIGN KEY(trans_id) REFERENCES transaction(trans_id),
+FOREIGN KEY(p_id) REFERENCES passenger(p_id),
+FOREIGN KEY(class_id) REFERENCES class(class_id),
+FOREIGN KEY(t_id) REFERENCES train(t_id),
+FOREIGN KEY(j_id) REFERENCES journey(j_id),
+FOREIGN KEY(user_id) REFERENCES login_user(user_id)
+);
+
+
+INSERT INTO ticket VALUES(1234567,68,'23-SEP-2023 6:02:00 PM','Middle','In Progress',001,001,001,12634,001,100000);
+
+INSERT INTO ticket VALUES(1342572,12,'20-AUG-2023 09:02:00 AM','Upper','Completed',002,002,002,12633,002,100001);
+
+INSERT INTO ticket VALUES(1563727,16,'27-SEP-2023 07:02:00 AM','Lower','In Progress',003,003,003,12666,003,100002);
+
+INSERT INTO ticket VALUES(1234537,80,'20-SEP-2023 08:02:00 PM','Side Upper','Completed',004,004,004,12634,004,100004);
+
+Railway Ticket Reservation System:
+
+User Table:
+
+CREATE TABLE login_user(
+user_id int NOT NULL,
+username varchar2(25) NOT NULL,
+password varchar2(15) NOT NULL,
+pref_lang varchar2(10),
+name varchar2(20) NOT NULL,
+DOB DATE,
+maritalstatus varchar2(10),
+sec_qn varchar2(50),
+sec_ans varchar2(50),
+address varchar2(100) NOT NULL,
+email varchar2(25),
+mob_no int NOT NULL,
+gender varchar2(10),
+occp_type varchar2(15),
+nationality varchar2(15),
+PRIMARY KEY(user_id));
+
+INSERT INTO login_user VALUES(&user_id,'&username','&password','&pref_lang','name','&DOB','&marital_status','&sec_qn','&sec_ans','&address','&email',&mob_no,'&gender','&occp_type','&nationality');
+
+INSERT INTO login_user VALUES(100000,'apaashin','aashin123','English','Aashin A P','21-JAN-2005','Unmarried','Who is your favourite sportsperson?','MS Dhoni','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaashin@gmail.com',9489960744,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100001,'sasikumar','sasi321','English','Sasi Kumar R','27-OCT-2004','Unmarried','Who is your favourite actor?','Ajith','1234 Elm Street,Cityville, Stateville,ZIP Code:12345','sasikumar@gmail.com',9483466746,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100002,'antokumar','anto7677','English','R P Anto Kumar','07-JUN-1977','Married','Which institution are you working in?','SXCCE','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','anto_friends@yahoo.com',9443282263,'Male','Private','Indian');
+
+INSERT INTO login_user VALUES(100003,'apaarush','aarush2101','English','Aarush A P','20-JUN-2011','Unmarried','What is the name of your pet?','Tiger','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaarush2011@gmail.com',9488748746,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100004,'preetha','preetha0505','English','Preetha S','05-MAY-2005','Married','What is the name of your spouse?','R P Anto Kumar','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','preethaaashin@gmail.com',9487311744,'Female','Other','Indian');
+
+INSERT INTO login_user VALUES(100005,'naveen','naveen123','English','Naveen J','10-DEC-2004','Unmarried','Who is your favourite sportsperson?','Christiano Ronaldo','Dubai Cross Street,Dubai Main Road,Opp to Dubai Bus Stand,Chromepet.','naveen@gmail.com',9898959512,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100006,'aadharsh','aadharsh123','English','Aadharsh S','12-NOV-2004','Unmarried','Who is your college crush?','H R','NIT Trichy Quarters, NIT Trichy, Trichy','aadharsh@gmail.com',9476356458,'Male','Student','Indian');
+
+INSERT INTO login_user VALUES(100007,'tamilselvan','tamil420','English','Tamilselvan V','23-JUN-2005','Unmarried','Who is your favourite sportsperson?','Virat Kohli','Gingee, Viluppuram','abimonshri@gmail.com',9487387437,'Male','Student','Indian');
+
+
+Journey Table:
+
+CREATE TABLE journey(
+j_id int,
+j_source varchar2(25),
+j_dest varchar2(25),
+j_date DATE,
+createdon DATE,
+j_status varchar2(25),
+login_id int,
+PRIMARY KEY(j_id),
+FOREIGN KEY(login_id) REFERENCES login_user(user_id)
+);
+
+INSERT INTO journey VALUES(001,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Pending','100001');
+
+INSERT INTO journey VALUES(002,'Chennai Egmore','Nagercoil Junction','02-OCT-2023','23-SEP-2023','Pending','100000');
+
+INSERT INTO journey VALUES(003,'Kanniyakumari Terminus','Agra Cantt','01-AUG-2023','23-JUL-2023','Completed','100002');
+
+INSERT INTO journey VALUES(004,'MGR Chennai Central','Bangalore Junction','24-NOV-2023','27-SEP-2023','Pending','100001');
+
+INSERT INTO journey VALUES(005,'Trivandrum Central','MGR Chennai Central','29-SEP-2023','23-SEP-2023','Pending','100004');
+
+INSERT INTO journey VALUES(006,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Cancelled','100003');
+
+
+Train Table:
+
+CREATE TABLE train(
+t_id int,
+t_name varchar2(50),
+t_type varchar2(25),
+dep_st varchar2(25),
+arr_st varchar2(25),
+dep_time TIMESTAMP,
+arr_time TIMESTAMP,
+halts int,
+pantry_status varchar2(10),
+us_id int,
+jo_id int,
+PRIMARY KEY(t_id),
+FOREIGN KEY(us_id) REFERENCES login_user(user_id),
+FOREIGN KEY(jo_id) REFERENCES journey(j_id));
+
+
+INSERT INTO train VALUES(12666,'Kanniyakumari - Howrah Superfast Express','SuperFast','Nagercoil Junction','Howrah Cantt','27-SEP-2023 12:00:00 AM','28-SEP-2023 04:00:00 PM',14,'Open',100000,002);
+
+INSERT INTO train VALUES(16128,'Guruvayur - Chennai Egmore Express','Express','Kochuveli Junction','Chennai Egmore','24-SEP-2023 06:00:00 AM','24-SEP-2023 08:00:00 PM',22,'Close',100004,001);
+
+INSERT INTO train VALUES(12688,'Tambaram - Nagercoil Junction Superfast Express','SuperFast','Tambaram','Nagercoil Junction','27-SEP-2023 06:00:00 PM','28-SEP-2023 05:00:00 AM',16,'Open',100002,004);
+
+INSERT INTO train VALUES(20692,'Nagercoil - Tambaram Antyodaya Express','Antyodaya','Nagercoil Junction','Tambaram','25-SEP-2023 06:45:00 PM','26-SEP-2023 05:00:00 AM',22,'Close',100002,003);
+
+INSERT INTO train VALUES(12633,'Chennai Egmore - Kanniyakumari Express','Express','Chennai Egmore','Kanniyakumari Terminus','25-SEP-2023 07:45:00 PM','26-SEP-2023 05:30:00 AM',14,'Open',100005,005);
+
+INSERT INTO train VALUES(12634,'Kanniyakumari - Chennai Egmore Express','Express','Kanniyakumari Terminus','Chennai Egmore','25-SEP-2023 07:45:00 PM','26-SEP-2023 05:30:00 AM',14,'Open',100004,006);
+
+INSERT INTO train VALUES(12679,'MGR Chennai Central - Coimbatore Intercity SF Express','SuperFast','MGR Chennai Central','Coimbatore','25-SEP-2023 02:35:00 PM','25-SEP-2023 10:20:00 PM',11,'Closed',100006,005);
+
+INSERT INTO train VALUES(12680,'Coimbatore - MGR Chennai Central  Intercity SF Express','SuperFast','Coimbatore','MGR Chennai Central','25-SEP-2023 06:20:00 AM','25-SEP-2023 11:50:00 PM',11,'Closed',100000,001);
+
+INSERT INTO train VALUES(16021,'Kaveri Express','Express','MGR Chennai Central','Mysuru Junction','25-SEP-2023 08:20:00 PM','26-SEP-2023 04:50:00 AM',23,'Open',100001,002);
+
+INSERT INTO train VALUES(12693,'Pearl City SF Express','SuperFast','Chennai Egmore','Tuticorin','25-SEP-2023 7:30:00 PM','26-SEP-2023 6:20:00 AM',17,'Closed',100002,003);
+
+INSERT INTO train VALUES(20607,'MGR Chennai Central - Mysuru Vande Bharat Express','Vande Bharat','MGR Chennai Central','Mysuru Junction','25-SEP-2023 05:50:00 AM','25-SEP-2023 12:20:00 PM',2,'Open',100005,005);
+
+Class Table:
+
+CREATE TABLE class(
+class_id int,
+class_name varchar2(25),
+no_of_compartments int,
+seat_per_compartment int,
+seat_availability varchar2(10),
+opt_for_upgrade varchar2(5),
+upgradation_status varchar2(15),
+coach_pref varchar2(15),
+jou_id int,
+l_user_id int,
+tr_id int,
+PRIMARY KEY(class_id),
+FOREIGN KEY(jou_id) REFERENCES journey(j_id),
+FOREIGN KEY(l_user_id) REFERENCES login_user(user_id),
+FOREIGN KEY(tr_id) REFERENCES train(t_id)
+);
+
+
+INSERT INTO class VALUES(001,'First Class AC',1,20,'WL1','No','Pending','Nil',001,100004,12688);
+
+INSERT INTO class VALUES(002,'First Class AC',1,20,'PWQL1','No','Pending','Nil',002,100002,12634);
+
+INSERT INTO class VALUES(003,'Sleeper',12,80,'WL129','Yes','Pending','Nil',001,100005,12633);
+
+INSERT INTO class VALUES(004,'First Class AC',1,20,'WL1','No','Pending','Nil',005,100001,12633);
+
+Passenger Table:
+
+CREATE TABLE passenger(
+p_id int,
+name varchar2(20),
+DOB DATE,
+email varchar2(50),
+p_type varchar2(25),
+mob_no int,
+opt_insur varchar2(5),
+user_id int,
+PRIMARY KEY(p_id),
+FOREIGN KEY(user_id) REFERENCES login_user(user_id));
+
+INSERT INTO passenger VALUES(001,'Aashin A P','21-JAN-2005','apaashin@gmail.com','Adult',9489960744,'Yes',100001);
+
+INSERT INTO passenger VALUES(002,'V Tamilselvan','23-JUN-2005','vtamil@gmail.com','Adult',9489960944,'Yes',100000);
+
+INSERT INTO passenger VALUES(003,'Alam','19-FEB-1955','alam7@gmail.com','Senior Citizen',9489935744,'No',100005);
+
+INSERT INTO passenger VALUES(004,'Ravi Shankar','21-Feb-2005','ravishankar@gmail.com','Adult',9489965674,'Yes',100006);
+
+
+Transaction Table:
+
+CREATE TABLE transaction(
+trans_id int,
+transamt NUMBER(10,2),
+pay_method varchar2(25),
+acc_no int,
+trans_datetime TIMESTAMP,
+trans_status varchar2(25),
+baseprice NUMBER(10,2),
+tax NUMBER(10,2),
+p_id int,
+class_id int,
+t_id int,
+j_id int,
+user_id int,
+PRIMARY KEY(trans_id),
+FOREIGN KEY(p_id) REFERENCES passenger(p_id),
+FOREIGN KEY(class_id) REFERENCES class(class_id),
+FOREIGN KEY(t_id) REFERENCES train(t_id),
+FOREIGN KEY(j_id) REFERENCES journey(j_id),
+FOREIGN KEY(user_id) REFERENCES login_user(user_id)
+);
+
+
+INSERT INTO transaction VALUES(001,1256.47,'UPI','7754354636','23-SEP-2023 08:20:00 PM','Success',1240.00,16.47,001,001,12633,001,100000);
+
+INSERT INTO transaction VALUES(002,1556.47,'Net Banking','775433754636','22-SEP-2023 08:20:00 AM','Success',1440.00,116.47,002,002,12634,002,100001);
+
+INSERT INTO transaction VALUES(003,756.47,'UPI','7756554636','23-SEP-2023 08:30:00 PM','Failure',750.00,6.47,003,003,12633,003,100003);
+
+INSERT INTO transaction VALUES(004,756.47,'UPI','7756554636','23-SEP-2023 08:30:00 PM','Success',750.00,6.47,003,003,12633,003,100003);
+
+Ticket Table:
+
+CREATE TABLE ticket(
+pnr_no int,
+seat int,
+gen_datetime TIMESTAMP,
+berth varchar2(25),
+status varchar2(25),
+trans_id int,
+p_id int,
+class_id int,
+t_id int,
+j_id int,
+user_id int,
+PRIMARY KEY(pnr_no),
+FOREIGN KEY(trans_id) REFERENCES transaction(trans_id),
+FOREIGN KEY(p_id) REFERENCES passenger(p_id),
+FOREIGN KEY(class_id) REFERENCES class(class_id),
+FOREIGN KEY(t_id) REFERENCES train(t_id),
+FOREIGN KEY(j_id) REFERENCES journey(j_id),
+FOREIGN KEY(user_id) REFERENCES login_user(user_id)
+);
+
+
+INSERT INTO ticket VALUES(1234567,68,'23-SEP-2023 6:02:00 PM','Middle','In Progress',001,001,001,12634,001,100000);
+
+INSERT INTO ticket VALUES(1342572,12,'20-AUG-2023 09:02:00 AM','Upper','Completed',002,002,002,12633,002,100001);
+
+INSERT INTO ticket VALUES(1563727,16,'27-SEP-2023 07:02:00 AM','Lower','In Progress',003,003,003,12666,003,100002);
+
+INSERT INTO ticket VALUES(1234537,80,'20-SEP-2023 08:02:00 PM','Side Upper','Completed',004,004,004,12634,004,100004);
+
+*********************************************************************************************************************************************************************************************
+24/10/2023        
+TUESDAY                
+-------------------
+
+DECLARE 
+message varchar2(20):='hello , world';
+BEGIN
+dbms_output.put_line(message);
+END;
+/
+
+DECLARE 
+num1 INTEGER;
+num2 REAL;
+num3 DOUBLE PRECISION;
+message varchar2(20):='hello , world';
+BEGIN
+dbms_output.put_line(message);
+END;
+/
+
+SUBTYPE:
+
+DECLARE
+SUBTYPE name IS char(20);
+SUBTYPE message IS varchar2(100);
+salutation name;
+greetings message;
+BEGIN
+salutation := ' Archana';
+greetings := ' welcome to the world';
+dbms_output.put_line('hello' || salutation || greetings);
+END;
+/
+
+DECLARE 
+a integer :=10;
+b integer :=20;
+c integer ;
+f real;
+BEGIN
+c :=a+b;
+dbms_output.put_line('value of c: ' || c);
+f:=70.0/3.0;
+dbms_output.put_line('value of f: ' || f);
+END;
+/
+
+DECLARE 
+num1 number :=95;
+num2 number :=85;
+BEGIN
+dbms_output.put_line('global variables num1:' || num1);
+dbms_output.put_line('global variables num2:' || num2);
+DECLARE
+num1 number :=195;
+num2 number :=185;
+BEGIN
+dbms_output.put_line('local variables num1:' || num1);
+dbms_output.put_line('local variables num2:' || num2);
+END;
+END;
+/
+
+DECLARE 
+a number (2) :=21;
+b number (2) :=10;
+BEGIN 
+IF (a=b) then
+dbms_output.put_line('LINE 1-a is equal to b');
+ELSE 
+dbms_output.put_line('LINE 1-a is not equal to b');
+END IF;
+END;
+/
+
+DECLARE 
+PROCEDURE compare (value varchar2 , pattern varchar2)is
+BEGIN -- like operator
+IF value LIKE pattern THEN
+dbms_output.put_line('True');
+ELSE 
+dbms_output.put_line('False');
+END IF;
+END;
+BEGIN
+compare('Zaheer Ali' , 'Z%A_i');
+compare('Naveen' , 'Z%A_i');
+END;
+/
+
+DECLARE 
+x number (2) :=10;
+BEGIN --between operator 
+IF (x between 5 and 20) THEN 
+dbms_output.put_line('True');
+ELSE
+dbms_output.put_line('Flase');
+END IF;
+END;
+/
+
+DECLARE 
+a number (2) :=21;
+b number (2) :=10;
+BEGIN 
+IF (a>b) then
+dbms_output.put_line('LINE 1-a is greater than b');
+ELSE 
+dbms_output.put_line('LINE 1-a is not greater than b');
+END IF;
+END;
+/
+
+DECLARE 
+a number (2) :=21;
+b number (2) :=10;
+BEGIN 
+IF (a<b) then
+dbms_output.put_line('LINE 1-b is greater than a');
+ELSE 
+dbms_output.put_line('LINE 1-b is not greater than a');
+END IF;
+END;
+/
+
+DECLARE 
+a integer :=21;
+b integer :=10;
+BEGIN 
+IF (a=b) then
+dbms_output.put_line('LINE 1-b is greater than a');
+ELSE 
+dbms_output.put_line('LINE 1-b is not greater than a');
+END IF;
+END;
+/ 
+
+*********************************************************************************************************************************************************************************************
+31/10/2023
+TUESDAY
+
+LOOP:
+
+DECLARE 
+x number :=10;
+BEGIN
+LOOP
+dbms_output.put_line('value of a:'||x);
+x:=x+10;
+IF x>50 THEN
+EXIT;
+END IF;
+END LOOP;
+dbms_output.put_line('after exit x is:'||x);
+END;
+/
+
+DECLARE 
+x number :=10;
+BEGIN
+LOOP
+dbms_output.put_line('value of a:'||x);
+x:=x+10;
+EXIT WHEN x>50 ;
+END LOOP;
+dbms_output.put_line('after exit x is:'||x);
+END;
+/
+
+DECLARE 
+x number :=10;
+BEGIN
+WHILE x<20 LOOP
+dbms_output.put_line('value of a:'||x);
+x:=x+1;
+END LOOP;
+dbms_output.put_line('after exit x is:'||x);
+END;
+/
+
+DECLARE
+x number(2);
+BEGIN
+FOR x in 10.. 20 LOOP
+dbms_output.put_line('after exit x is:'||x);
+END LOOP;
+END;
+/
+
+DECLARE
+x number(2);
+BEGIN
+FOR x in REVERSE 10.. 20 LOOP
+dbms_output.put_line('after exit x is:'||x);
+END LOOP;
+END;
+/
+
+DECLARE 
+x number :=10;
+BEGIN
+WHILE x<20 LOOP
+dbms_output.put_line('value of a:'||x);
+x:=x+1;
+IF x>15 THEN
+EXIT;
+END IF;
+END LOOP;
+dbms_output.put_line('after exit x is:'||x);
+END;
+/
+
+DECLARE 
+x number :=10;
+BEGIN
+WHILE x<20 LOOP
+dbms_output.put_line('value of a:'||x);
+x:=x+1;
+EXIT WHEN x>15 ;
+END LOOP;
+dbms_output.put_line('after exit x is:'||x);
+END;
+/
+
+DECLARE 
+x number :=10;
+BEGIN
+WHILE x<20 LOOP
+dbms_output.put_line('value of a:'||x);
+x:=x+1;
+IF x=15 THEN
+CONTINUE;
+END IF;
+END LOOP;
+dbms_output.put_line('after exit x is:'||x);
+END;
+/
+
+DECLARE
+c_id customers.id%type :=3;
+c_name customers.name%type;
+c_add customers.address%type;
+c_sal customers.salary%type;
+BEGIN
+SELECT name , address , salary INTO c_name , c_add , c_sal
+FROM customers
+WHERE id=c_id;
+dbms_output.put_line('customer ' || c_name|| ' from '||c_add||' earns '||c_sal);
+END;
+/
+
+DECLARE
+a number ;
+b number;
+c number;
+PROCEDURE findMin(x IN number , y IN number , z OUT number)IS
+BEGIN
+IF x<y THEN
+z:=x;
+ELSE
+z:=y;
+END IF;
+END;
+BEGIN
+a:=23;
+b:=45;
+findMin(a,b,c);
+dbms_output.put_line('minimum of (23,45): '||c);
+END;
+/
+
+DECLARE
+a number ;
+PROCEDURE squareNum(x IN OUT number ) IS
+BEGIN
+x:=x*x;
+END;
+BEGIN
+a:=4;
+squareNum(a);
+dbms_output.put_line('square of 4 : '||a);
+END;
+/
+
+CREATE FUNCTION cus_tot
+RETURN number is 
+total number (2) :=0;
+BEGIN
+SELECT count(*) into total
+FROM customers;
+RETURN total;
+END;
+/
+
+DECLARE
+c number(2);
+BEGIN
+c:=cus_tot();
+dbms_output.put_line('total no of customer:'||c);
+END;
+/
+
+*******************************************************************************************************************************************************************************************
+07/11/2023
+TUESDAY
+
+DECLARE
+total_rows number(2);
+BEGIN
+UPDATE customers
+SET salary = salary +500;
+IF sql%notfound THEN
+dbms_output.put_line('no customers selected');
+ELSIF sql%found THEN
+total_rows := sql%rowcount;
+dbms_output.put_line( total_rows || ' customers selected');
+END IF;
+END;
+/
+
+DECLARE
+c_id customers.id%type;
+c_name customers.name%type;
+c_add customers.address%type;
+CURSOR c_customers is
+SELECT id,name,address FROM customers;
+BEGIN
+OPEN c_customers;
+LOOP
+FETCH c_customers INTO c_id , c_name , c_add ;
+dbms_output.put_line(c_id|| '  '||c_name||'  '||c_add);
+EXIT WHEN c_customers%notfound;
+END LOOP;
+CLOSE c_customers;
+END;
+/
+
+DECLARE
+c_id customers.id%type;
+c_name customers.name%type;
+CURSOR c_customers is
+SELECT id,name FROM customers;
+BEGIN
+OPEN c_customers;
+LOOP
+FETCH c_customers INTO c_id , c_name ;
+dbms_output.put_line(c_id|| '  '||c_name);
+EXIT WHEN c_customers%notfound;
+END LOOP;
+CLOSE c_customers;
+END;
+/
+
+DECLARE
+c_id customers.id%type:=3;
+c_name customers.name%type;
+BEGIN
+SELECT name INTO c_name 
+FROM customers
+WHERE id = c_id;
+dbms_output.put_line( ' customer'||c_name);
+EXCEPTION 
+WHEN no_data_found THEN 
+dbms_output.put_line('NO SUCH CUSTOMER FOUND');
+WHEN others THEN
+dbms_output.put_line('ERROR!!!');
+END;
+/
+
+DECLARE
+c_id customers.id%type:=3;
+c_name customers.name%type;
+ex_invalid_id EXCEPTION;
+BEGIN
+IF C_ID <= 0 THEN
+RAISE ex_invalid_id;
+ELSE 
+SELCET name INTO c_name 
+FROM customers
+WHERE id=c_id;
+dbms_output.put_line( ' customer'||c_name);
+END IF;
+EXCEPTION
+WHEN ex_invalid_id THEN
+dbms_output.put_line('ID not found  ');
+WHEN no_data_found THEN 
+dbms_output.put_line('NO SUCH CUSTOMER FOUND');
+WHEN others THEN
+dbms_output.put_line('ERROR!!!');
+END;
+/
+
+UPDATE customers SET salary =10000 WHERE name='geetha';
+
+CREATE TABLE itss_arch(
+name varchar2(20),
+maths int,
+chemistry int,
+physics int,
+total int ,
+average float
+);
+
+INSERT INTO itss_arch VALUES( ' geetha ' , 125 , 158 , 160 , 443 , 147.6);
+
+CREATE TABLE itss_arch_history(
+name varchar2(20),
+maths int,
+chemistry int,
+physics int,
+total int ,
+average float
+);
+
+CREATE OR REPLACE TRIGGER itss_arch_history
+BEFORE UPDATE OF chemistry
+ON itss_arch
+FOR EACH ROW
+BEGIN
+INSERT INTO itss_arch_history
+VALUES
+(:old.name,
+:old.maths,
+:old.physics,
+:old.chemistry,
+:old.total,
+:old.average);
+END;
+/
+
+ INSERT INTO customers VALUES( 2 , 'geetha' , 18 , 'mumbai' , 9000);
+ INSERT INTO customers VALUES( 3 , 'radha' , 19 , 'bengaluru' , 25000);
+ INSERT INTO customers VALUES( 4 , 'loga priya' , 16 , 'madurai' , 50000);
+ INSERT INTO customers VALUES( 5 , 'swethika' , 22 , 'theni' , 100000);
+
+CREATE TABLE customers(
+id int ,
+name varchae2(20),
+age int,
+address varchar2(20),
+salary int
+);
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DECLARE
+total_rows number(2);
+BEGIN
+UPDATE ticket
+SET seat = seat +2;
+IF sql%notfound THEN
+dbms_output.put_line('no seat selected');
+ELSIF sql%found THEN
+total_rows := sql%rowcount;
+dbms_output.put_line( total_rows || ' seat selected');
+END IF;
+END;
+/
+
+DECLARE
+c_id customers.id%type;
+c_name customers.name%type;
+c_add customers.address%type;
+CURSOR c_customers is
+SELECT id,name,address FROM customers;
+BEGIN
+OPEN c_customers;
+LOOP
+FETCH c_customers INTO c_id , c_name , c_add ;
+dbms_output.put_line(c_id|| '  '||c_name||'  '||c_add);
+EXIT WHEN c_customers%notfound;
+END LOOP;
+CLOSE c_customers;
+END;
+/
+
+DECLARE
+c_id customers.id%type;
+c_name customers.name%type;
+CURSOR c_customers is
+SELECT id,name FROM customers;
+BEGIN
+OPEN c_customers;
+LOOP
+FETCH c_customers INTO c_id , c_name ;
+dbms_output.put_line(c_id|| '  '||c_name);
+EXIT WHEN c_customers%notfound;
+END LOOP;
+CLOSE c_customers;
+END;
+/
+
+DECLARE
+c_id customers.id%type:=3;
+c_name customers.name%type;
+BEGIN
+SELECT name INTO c_name 
+FROM customers
+WHERE id = c_id;
+dbms_output.put_line( ' customer'||c_name);
+EXCEPTION 
+WHEN no_data_found THEN 
+dbms_output.put_line('NO SUCH CUSTOMER FOUND');
+WHEN others THEN
+dbms_output.put_line('ERROR!!!');
+END;
+/
+
+DECLARE
+c_id customers.id%type:=3;
+c_name customers.name%type;
+ex_invalid_id EXCEPTION;
+BEGIN
+IF C_ID <= 0 THEN
+RAISE ex_invalid_id;
+ELSE 
+SELCET name INTO c_name 
+FROM customers
+WHERE id=c_id;
+dbms_output.put_line( ' customer'||c_name);
+END IF;
+EXCEPTION
+WHEN ex_invalid_id THEN
+dbms_output.put_line('ID not found  ');
+WHEN no_data_found THEN 
+dbms_output.put_line('NO SUCH CUSTOMER FOUND');
+WHEN others THEN
+dbms_output.put_line('ERROR!!!');
+END;
+/
+
+UPDATE customers SET salary =10000 WHERE name='geetha';
+
+CREATE TABLE itss_arch(
+name varchar2(20),
+maths int,
+chemistry int,
+physics int,
+total int ,
+average float
+);
+
+INSERT INTO itss_arch VALUES( ' geetha ' , 125 , 158 , 160 , 443 , 147.6);
+
+CREATE TABLE itss_arch_history(
+name varchar2(20),
+maths int,
+chemistry int,
+physics int,
+total int ,
+average float
+);
+
+CREATE OR REPLACE TRIGGER itss_arch_history
+BEFORE UPDATE OF chemistry
+ON itss_arch
+FOR EACH ROW
+BEGIN
+INSERT INTO itss_arch_history
+VALUES
+(:old.name,
+:old.maths,
+:old.physics,
+:old.chemistry,
+:old.total,
+:old.average);
+END;
+/
+
+
+Experiment - 9
+
+DECLARE
+total_trains number(2);
+BEGIN
+UPDATE train
+SET halts = halts + 3;
+IF sql%notfound THEN
+dbms_output.put_line('no trains selected');
+ELSIF sql%found THEN
+total_trains := sql%rowcount;
+dbms_output.put_line( total_trains || ' trains updated');
+END IF;
+END;
+/
+
+DECLARE
+t_id train.t_id%type;
+train_name train.t_name%type;
+t_source train.dep_st%type;
+CURSOR trains is
+SELECT t_id,t_name,dep_st FROM train;
+BEGIN
+OPEN trains;
+LOOP
+FETCH trains INTO t_id , train_name , t_source ;
+dbms_output.put_line(t_id|| '  '||train_name||'  '||t_source);
+EXIT WHEN trains%notfound;
+END LOOP;
+CLOSE trains;
+END;
+/
+
+DECLARE
+id train.t_id%type:= 12679;
+train train.t_name%type;
+CURSOR trains is
+SELECT t_name FROM train WHERE t_id=id;
+BEGIN
+OPEN trains;
+LOOP
+FETCH trains INTO id , train;
+dbms_output.put_line(id|| '  '||train);
+EXIT WHEN trains%notfound;
+END LOOP;
+CLOSE trains;
+END;
+/
+
+DECLARE
+id train.t_id%type:=&train_id;
+name train.t_name%type;
+BEGIN
+SELECT t_name INTO name 
+FROM train
+WHERE t_id = id;
+dbms_output.put_line( 'Train: '||name);
+EXCEPTION 
+WHEN no_data_found THEN 
+dbms_output.put_line('NO SUCH TRAIN FOUND');
+WHEN others THEN
+dbms_output.put_line('ERROR!!!');
+END;
+/
+
+DECLARE
+id train.t_id%type:=&train_id;
+name train.t_name%type;
+ex_invalid_id EXCEPTION;
+BEGIN
+IF ID <= 0 THEN
+RAISE ex_invalid_id;
+ELSE 
+SELECT t_name INTO name 
+FROM train
+WHERE t_id=id;
+dbms_output.put_line( 'Train '||name);
+END IF;
+EXCEPTION
+WHEN ex_invalid_id THEN
+dbms_output.put_line('ID not found  ');
+WHEN no_data_found THEN 
+dbms_output.put_line('NO SUCH TRAIN FOUND');
+WHEN others THEN
+dbms_output.put_line('ERROR!!!');
+END;
+/
+
+CREATE OR REPLACE TRIGGER display_halt_changes
+BEFORE DELETE OR INSERT OR UPDATE ON train
+FOR EACH ROW
+WHEN (NEW.T_ID > 0)
+DECLARE diff number;
+BEGIN diff := :NEW.halts - :OLD.halts;
+dbms_output.put_line('Old Halts: ' || :OLD.halts);
+dbms_output.put_line('New Halts: ' || :NEW.halts);
+dbms_output.put_line('Halt Difference: ' || diff);
+END;
+/
+
+update train SET halts=3 WHERE t_id = 20607;
+
+UPDATE customers SET salary =10000 WHERE name='geetha';
+
+CREATE TABLE itss_arch(
+name varchar2(20),
+maths int,
+chemistry int,
+physics int,
+total int ,
+average float
+);
+
+INSERT INTO itss_arch VALUES( ' geetha ' , 125 , 158 , 160 , 443 , 147.6);
+
+CREATE TABLE itss_arch_history(
+name varchar2(20),
+maths int,
+chemistry int,
+physics int,
+total int ,
+average float
+);
+
+CREATE OR REPLACE TRIGGER train_history
+BEFORE UPDATE OF halts
+ON train
+FOR EACH ROW
+BEGIN
+INSERT INTO train_history
+VALUES
+(:old.T_ID,
+:old.T_NAME,
+:old.T_TYPE,
+:old.DEP_ST,
+:old.ARR_ST,
+:old.DEP_TIME,
+:old.ARR_TIME,
+:old.HALTS,
+:old.PANTRY_STATUS,
+:old.US_ID,
+:old.JO_ID);
+END;
+/
+
+update train SET halts=5 WHERE t_id = 20607;
