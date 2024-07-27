@@ -68,9 +68,9 @@ INSERT INTO journey VALUES(005,'Trivandrum Central','MGR Chennai Central','29-SE
 INSERT INTO journey VALUES(006,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Cancelled','100003');
 ```
 
-Train Table:
+# Train Table:
 
-CREATE TABLE train(
+```bash CREATE TABLE train(
 t_id int,
 t_name varchar2(100),
 t_type varchar2(25),
@@ -85,9 +85,10 @@ jo_id int,
 PRIMARY KEY(t_id),
 FOREIGN KEY(us_id) REFERENCES login_user(user_id),
 FOREIGN KEY(jo_id) REFERENCES journey(j_id));
+```
+# Table Entries:
 
-
-INSERT INTO train VALUES(12666,'Kanniyakumari - Howrah Superfast Express','SuperFast','Nagercoil Junction','Howrah Cantt','27-SEP-2023 12:00:00 AM','28-SEP-2023 04:00:00 PM',14,'Open',100000,002);
+```bash INSERT INTO train VALUES(12666,'Kanniyakumari - Howrah Superfast Express','SuperFast','Nagercoil Junction','Howrah Cantt','27-SEP-2023 12:00:00 AM','28-SEP-2023 04:00:00 PM',14,'Open',100000,002);
 
 INSERT INTO train VALUES(16128,'Guruvayur - Chennai Egmore Express','Express','Kochuveli Junction','Chennai Egmore','24-SEP-2023 06:00:00 AM','24-SEP-2023 08:00:00 PM',22,'Close',100004,001);
 
@@ -108,10 +109,10 @@ INSERT INTO train VALUES(16021,'Kaveri Express','Express','MGR Chennai Central',
 INSERT INTO train VALUES(12693,'Pearl City SF Express','SuperFast','Chennai Egmore','Tuticorin','25-SEP-2023 7:30:00 PM','26-SEP-2023 6:20:00 AM',17,'Closed',100002,003);
 
 INSERT INTO train VALUES(20607,'MGR Chennai Central - Mysuru Vande Bharat Express','Vande Bharat','MGR Chennai Central','Mysuru Junction','25-SEP-2023 05:50:00 AM','25-SEP-2023 12:20:00 PM',2,'Open',100005,005);
+```
+# Class Table:
 
-Class Table:
-
-CREATE TABLE class(
+```bash CREATE TABLE class(
 class_id int,
 class_name varchar2(25),
 no_of_compartments int,
@@ -128,19 +129,20 @@ FOREIGN KEY(jou_id) REFERENCES journey(j_id),
 FOREIGN KEY(l_user_id) REFERENCES login_user(user_id),
 FOREIGN KEY(tr_id) REFERENCES train(t_id)
 );
+```
+# Table Entries:
 
-
-INSERT INTO class VALUES(001,'First Class AC',1,20,'WL1','No','Pending','Nil',001,100004,12688);
+```bash INSERT INTO class VALUES(001,'First Class AC',1,20,'WL1','No','Pending','Nil',001,100004,12688);
 
 INSERT INTO class VALUES(002,'First Class AC',1,20,'PWQL1','No','Pending','Nil',002,100002,12634);
 
 INSERT INTO class VALUES(003,'Sleeper',12,80,'WL129','Yes','Pending','Nil',001,100005,12633);
 
 INSERT INTO class VALUES(004,'First Class AC',1,20,'WL1','No','Pending','Nil',005,100001,12633);
+```
+# Passenger Table:
 
-Passenger Table:
-
-CREATE TABLE passenger(
+```bash CREATE TABLE passenger(
 p_id int,
 name varchar2(20),
 DOB DATE,
@@ -151,19 +153,21 @@ opt_insur varchar2(5),
 user_id int,
 PRIMARY KEY(p_id),
 FOREIGN KEY(user_id) REFERENCES login_user(user_id));
+```
+# Table Entries:
 
-INSERT INTO passenger VALUES(001,'Aashin A P','21-JAN-2005','apaashin@gmail.com','Adult',9489960744,'Yes',100001);
+```bash INSERT INTO passenger VALUES(001,'Aashin A P','21-JAN-2005','apaashin@gmail.com','Adult',9489960744,'Yes',100001);
 
 INSERT INTO passenger VALUES(002,'V Tamilselvan','23-JUN-2005','vtamil@gmail.com','Adult',9489960944,'Yes',100000);
 
 INSERT INTO passenger VALUES(003,'Alam','19-FEB-1955','alam7@gmail.com','Senior Citizen',9489935744,'No',100005);
 
 INSERT INTO passenger VALUES(004,'Ravi Shankar','21-Feb-2005','ravishankar@gmail.com','Adult',9489965674,'Yes',100006);
+```
 
+# Transaction Table:
 
-Transaction Table:
-
-CREATE TABLE transaction(
+```bash CREATE TABLE transaction(
 trans_id int,
 transamt NUMBER(10,2),
 pay_method varchar2(25),
@@ -184,19 +188,20 @@ FOREIGN KEY(t_id) REFERENCES train(t_id),
 FOREIGN KEY(j_id) REFERENCES journey(j_id),
 FOREIGN KEY(user_id) REFERENCES login_user(user_id)
 );
+```
+# Table Entries
 
-
-INSERT INTO transaction VALUES(001,1256.47,'UPI','7754354636','23-SEP-2023 08:20:00 PM','Success',1240.00,16.47,001,001,12633,001,100000);
+```bash INSERT INTO transaction VALUES(001,1256.47,'UPI','7754354636','23-SEP-2023 08:20:00 PM','Success',1240.00,16.47,001,001,12633,001,100000);
 
 INSERT INTO transaction VALUES(002,1556.47,'Net Banking','775433754636','22-SEP-2023 08:20:00 AM','Success',1440.00,116.47,002,002,12634,002,100001);
 
 INSERT INTO transaction VALUES(003,756.47,'UPI','7756554636','23-SEP-2023 08:30:00 PM','Failure',750.00,6.47,003,003,12633,003,100003);
 
 INSERT INTO transaction VALUES(004,756.47,'UPI','7756554636','23-SEP-2023 08:30:00 PM','Success',750.00,6.47,003,003,12633,003,100003);
+```
+# Ticket Table:
 
-Ticket Table:
-
-CREATE TABLE ticket(
+```bash CREATE TABLE ticket(
 pnr_no int,
 seat int,
 gen_datetime TIMESTAMP,
@@ -216,24 +221,25 @@ FOREIGN KEY(t_id) REFERENCES train(t_id),
 FOREIGN KEY(j_id) REFERENCES journey(j_id),
 FOREIGN KEY(user_id) REFERENCES login_user(user_id)
 );
+```
+# Table Entries
 
-
-INSERT INTO ticket VALUES(1234567,68,'23-SEP-2023 6:02:00 PM','Middle','In Progress',001,001,001,12634,001,100000);
+```bash INSERT INTO ticket VALUES(1234567,68,'23-SEP-2023 6:02:00 PM','Middle','In Progress',001,001,001,12634,001,100000);
 
 INSERT INTO ticket VALUES(1342572,12,'20-AUG-2023 09:02:00 AM','Upper','Completed',002,002,002,12633,002,100001);
 
 INSERT INTO ticket VALUES(1563727,16,'27-SEP-2023 07:02:00 AM','Lower','In Progress',003,003,003,12666,003,100002);
 
 INSERT INTO ticket VALUES(1234537,80,'20-SEP-2023 08:02:00 PM','Side Upper','Completed',004,004,004,12634,004,100004);
+```
 
-
-
+``` bash
 CREATE TABLE j_source (
     code VARCHAR2(4) PRIMARY KEY,
     station_name VARCHAR2(100)
 );
-
-
+```
+```bash 
 INSERT INTO j_source VALUES ('MAS','Chennai Central');
 INSERT INTO j_source VALUES ('MS','Chennai egmore');
 INSERT INTO j_source VALUES ('TBM','Tambaram');
@@ -871,7 +877,7 @@ FOREIGN KEY(dates) REFERENCES dailydate(dates),
 FOREIGN KEY(trans_id) REFERENCES transaction(tran_id)
 );
 
-
+```
 
 
 
