@@ -1,8 +1,8 @@
 ## Railway Ticket Reservation System
 
-User Table:
+# User Table:
 
-CREATE TABLE login_user(
+```bash CREATE TABLE login_user(
 user_id int NOT NULL,
 username varchar2(25) NOT NULL,
 password varchar2(15) NOT NULL,
@@ -19,8 +19,10 @@ gender varchar2(10),
 occp_type varchar2(15),
 nationality varchar2(15),
 PRIMARY KEY(user_id));
+```
+# Table Entries
 
-INSERT INTO login_user VALUES(100000,'apaashin','aashin123','English','Aashin A P','21-JAN-2005','Unmarried','Who is your favourite sportsperson?','MS Dhoni','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaashin@gmail.com',9489960744,'Male','Student','Indian');
+```bash INSERT INTO login_user VALUES(100000,'apaashin','aashin123','English','Aashin A P','21-JAN-2005','Unmarried','Who is your favourite sportsperson?','MS Dhoni','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaashin@gmail.com',9489960744,'Male','Student','Indian');
 
 INSERT INTO login_user VALUES(100001,'sasikumar','sasi321','English','Sasi Kumar R','27-OCT-2004','Unmarried','Who is your favourite actor?','Ajith','1234 Elm Street,Cityville, Stateville,ZIP Code:12345','sasikumar@gmail.com',9483466746,'Male','Student','Indian');
 
@@ -35,11 +37,11 @@ INSERT INTO login_user VALUES(100005,'naveen','naveen123','English','Naveen J','
 INSERT INTO login_user VALUES(100006,'aadharsh','aadharsh123','English','Aadharsh S','12-NOV-2004','Unmarried','Who is your college crush?','H R','NIT Trichy Quarters, NIT Trichy, Trichy','aadharsh@gmail.com',9476356458,'Male','Student','Indian');
 
 INSERT INTO login_user VALUES(100007,'tamilselvan','tamil420','English','Tamilselvan V','23-JUN-2005','Unmarried','Who is your favourite sportsperson?','Virat Kohli','Gingee, Viluppuram','abimonshri@gmail.com',9487387437,'Male','Student','Indian');
+```
 
+# Journey Table:
 
-Journey Table:
-
-CREATE TABLE journey(
+```bash CREATE TABLE journey(
 j_id int,
 j_source varchar2(25),
 j_dest varchar2(25),
@@ -50,8 +52,10 @@ login_id int,
 PRIMARY KEY(j_id),
 FOREIGN KEY(login_id) REFERENCES login_user(user_id)
 );
+```
+# Table Entries:
 
-INSERT INTO journey VALUES(001,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Pending','100001');
+```bash INSERT INTO journey VALUES(001,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Pending','100001');
 
 INSERT INTO journey VALUES(002,'Chennai Egmore','Nagercoil Junction','02-OCT-2023','23-SEP-2023','Pending','100000');
 
@@ -62,7 +66,7 @@ INSERT INTO journey VALUES(004,'MGR Chennai Central','Bangalore Junction','24-NO
 INSERT INTO journey VALUES(005,'Trivandrum Central','MGR Chennai Central','29-SEP-2023','23-SEP-2023','Pending','100004');
 
 INSERT INTO journey VALUES(006,'Nagercoil Junction','Chennai Egmore','27-SEP-2023','23-SEP-2023','Cancelled','100003');
-
+```
 
 Train Table:
 
