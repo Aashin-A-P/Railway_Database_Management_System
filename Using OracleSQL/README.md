@@ -22,21 +22,22 @@ PRIMARY KEY(user_id));
 ```
 # Table Entries
 
-```bash INSERT INTO login_user VALUES(100000,'apaashin','aashin123','English','Aashin A P','21-JAN-2005','Unmarried','Who is your favourite sportsperson?','MS Dhoni','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaashin@gmail.com',9489960744,'Male','Student','Indian');
+```bash INSERT INTO login_user VALUES(100000, 'user001', 'password001', 'English', 'John Doe', '01-JAN-1990', 'Unmarried', 'What is your favorite color?', 'Blue', '123 Main Street, Hometown, Country Pincode:123456', 'john.doe@example.com', 9123456789, 'Male', 'Student', 'Nationality');
 
-INSERT INTO login_user VALUES(100001,'sasikumar','sasi321','English','Sasi Kumar R','27-OCT-2004','Unmarried','Who is your favourite actor?','Ajith','1234 Elm Street,Cityville, Stateville,ZIP Code:12345','sasikumar@gmail.com',9483466746,'Male','Student','Indian');
+INSERT INTO login_user VALUES(100001, 'user002', 'password002', 'English', 'Jane Smith', '15-FEB-1995', 'Unmarried', 'What is your mother’s maiden name?', 'Smith', '456 Elm Street, Anytown, Country Pincode:654321', 'jane.smith@example.com', 9876543210, 'Female', 'Engineer', 'Nationality');
 
-INSERT INTO login_user VALUES(100002,'antokumar','anto7677','English','R P Anto Kumar','07-JUN-1977','Married','Which institution are you working in?','SXCCE','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','anto_friends@yahoo.com',9443282263,'Male','Private','Indian');
+INSERT INTO login_user VALUES(100002, 'user003', 'password003', 'English', 'Robert Brown', '10-MAR-1980', 'Married', 'What is your favorite food?', 'Pizza', '789 Pine Avenue, Somewhere, Country Pincode:789012', 'robert.brown@example.com', 9988776655, 'Male', 'Private', 'Nationality');
 
-INSERT INTO login_user VALUES(100003,'apaarush','aarush2101','English','Aarush A P','20-JUN-2011','Unmarried','What is the name of your pet?','Tiger','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','apaarush2011@gmail.com',9488748746,'Male','Student','Indian');
+INSERT INTO login_user VALUES(100003, 'user004', 'password004', 'English', 'Alice Green', '20-APR-2000', 'Unmarried', 'What is the name of your first school?', 'Greenwood', '101 Maple Road, Uptown, Country Pincode:210987', 'alice.green@example.com', 9111223344, 'Female', 'Student', 'Nationality');
 
-INSERT INTO login_user VALUES(100004,'preetha','preetha0505','English','Preetha S','05-MAY-2005','Married','What is the name of your spouse?','R P Anto Kumar','4-34,Mary Mandiram, Konassery, Sooriacode, Kanyakumari district Pincode:629153','preethaaashin@gmail.com',9487311744,'Female','Other','Indian');
+INSERT INTO login_user VALUES(100004, 'user005', 'password005', 'English', 'Michael Black', '05-MAY-1992', 'Married', 'What is your spouse’s name?', 'Emily Black', '202 Oak Drive, Midcity, Country Pincode:320456', 'michael.black@example.com', 9223344556, 'Male', 'Other', 'Nationality');
 
-INSERT INTO login_user VALUES(100005,'naveen','naveen123','English','Naveen J','10-DEC-2004','Unmarried','Who is your favourite sportsperson?','Christiano Ronaldo','Dubai Cross Street,Dubai Main Road,Opp to Dubai Bus Stand,Chromepet.','naveen@gmail.com',9898959512,'Male','Student','Indian');
+INSERT INTO login_user VALUES(100005, 'user006', 'password006', 'English', 'Sarah White', '10-JUN-1998', 'Unmarried', 'Who is your favorite musician?', 'Mozart', '303 Cedar Lane, Cityplace, Country Pincode:450321', 'sarah.white@example.com', 9334455667, 'Female', 'Student', 'Nationality');
 
-INSERT INTO login_user VALUES(100006,'aadharsh','aadharsh123','English','Aadharsh S','12-NOV-2004','Unmarried','Who is your college crush?','H R','NIT Trichy Quarters, NIT Trichy, Trichy','aadharsh@gmail.com',9476356458,'Male','Student','Indian');
+INSERT INTO login_user VALUES(100006, 'user007', 'password007', 'English', 'David Blue', '12-JUL-1994', 'Unmarried', 'What was your first car?', 'Honda', '404 Birch Street, Suburbia, Country Pincode:120654', 'david.blue@example.com', 9445566778, 'Male', 'Student', 'Nationality');
 
-INSERT INTO login_user VALUES(100007,'tamilselvan','tamil420','English','Tamilselvan V','23-JUN-2005','Unmarried','Who is your favourite sportsperson?','Virat Kohli','Gingee, Viluppuram','abimonshri@gmail.com',9487387437,'Male','Student','Indian');
+INSERT INTO login_user VALUES(100007, 'user008', 'password008', 'English', 'Emily Pink', '23-AUG-1996', 'Unmarried', 'What is your pet’s name?', 'Buddy', '505 Cherry Circle, Downtown, Country Pincode:789654', 'emily.pink@example.com', 9556677889, 'Female', 'Student', 'Nationality');
+
 ```
 
 # Journey Table:
@@ -156,13 +157,14 @@ FOREIGN KEY(user_id) REFERENCES login_user(user_id));
 ```
 # Table Entries:
 
-```bash INSERT INTO passenger VALUES(001,'Aashin A P','21-JAN-2005','apaashin@gmail.com','Adult',9489960744,'Yes',100001);
+```bash INSERT INTO passenger VALUES(001, 'John Doe', '01-JAN-1985', 'john.doe@example.com', 'Adult', 9123456789, 'Yes', 100001);
 
-INSERT INTO passenger VALUES(002,'V Tamilselvan','23-JUN-2005','vtamil@gmail.com','Adult',9489960944,'Yes',100000);
+INSERT INTO passenger VALUES(002, 'Jane Smith', '15-FEB-1990', 'jane.smith@example.com', 'Adult', 9876543210, 'Yes', 100002);
 
-INSERT INTO passenger VALUES(003,'Alam','19-FEB-1955','alam7@gmail.com','Senior Citizen',9489935744,'No',100005);
+INSERT INTO passenger VALUES(003, 'Robert Brown', '10-MAR-1940', 'robert.brown@example.com', 'Senior Citizen', 9988776655, 'No', 100003);
 
-INSERT INTO passenger VALUES(004,'Ravi Shankar','21-Feb-2005','ravishankar@gmail.com','Adult',9489965674,'Yes',100006);
+INSERT INTO passenger VALUES(004, 'Alice Green', '20-APR-2000', 'alice.green@example.com', 'Adult', 9111223344, 'Yes', 100004);
+
 ```
 
 # Transaction Table:
